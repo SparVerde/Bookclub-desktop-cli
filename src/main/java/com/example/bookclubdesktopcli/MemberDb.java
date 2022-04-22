@@ -37,6 +37,7 @@ public class MemberDb {
     public int bannedModosit(String Name) throws SQLException {
         String sql = "UPDATE members SET banned = ABS(banned-1) WHERE Name = ?";
         PreparedStatement stmt = conn.prepareStatement(sql);
+        stmt.setString(2,"Name");
         return stmt.executeUpdate();
     }
 }
